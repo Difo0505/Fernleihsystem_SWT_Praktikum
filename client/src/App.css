@@ -1,0 +1,15 @@
+img#logo {
+  height: 50px !important;
+}
+
+ul#nav-mobile {
+  background-color: black !important;
+}
+
+div#searchHome {
+  padding: 50px;
+  background-color: #4caf50;
+  height: 800px;
+  position: fixed;
+  width: 100%;
+}
