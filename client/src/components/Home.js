@@ -1,10 +1,10 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
-import image1 from "../images/image1.jpeg";
-import image2 from "../images/image2.jpeg";
-import { Row, Col, Container } from "react-grid-system";
-import { Parallax } from "react-materialize";
-import SearchHome from "./SearchHome";
+import image1 from '../images/image1.jpeg';
+import image2 from '../images/image2.jpeg';
+import { Row, Col, Container } from 'react-grid-system';
+import { Parallax } from 'react-materialize';
+import SearchHome from './SearchHome';
 class Home extends Component {
   render() {
     return (

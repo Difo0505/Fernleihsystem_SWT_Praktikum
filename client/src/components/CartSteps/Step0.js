@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-class Cart extends Component {
+import React, { Component } from 'react';
+
+class Step0 extends Component {
   render() {
     return (
       <div>
         <div>
           <ul className="collection with-header">
             <li className="collection-header">
-              <h4>Cart</h4>
+              <h4>Your Orders</h4>
             </li>
             <li className="collection-item">
               <div>
@@ -39,14 +39,9 @@ class Cart extends Component {
             </li>
           </ul>
         </div>
-        <div className="center">
-          <Link to="/cart/user" className="waves-effect waves-light btn ">
-            <i class="material-icons left">cloud</i>Checkout
-          </Link>
-        </div>
       </div>
     );
   }
 }
 
-export default Cart;
+export default Step0;

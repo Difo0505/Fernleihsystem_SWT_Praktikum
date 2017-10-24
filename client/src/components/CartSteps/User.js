@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import { Input, Icon, Button, Row, Col } from "react-materialize";
+import React, { Component } from 'react';
+import { Input, Icon, Button, Row, Col } from 'react-materialize';
 //import { Row, Col } from "react-grid-system";
-import { Zoom } from "react-reveal";
-import "../App.css";
+import { Zoom } from 'react-reveal';
 
 class User extends Component {
   render() {

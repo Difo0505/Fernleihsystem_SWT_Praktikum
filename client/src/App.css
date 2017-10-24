@@ -7,11 +7,14 @@ ul#nav-mobile {
 }
 
 div#searchHome {
-  padding: 50px;
-  background-color: white;
-  height: 800px;
+  margin-top: 30px;
+  margin-left: 50px;
+  padding: 15px;
   position: fixed;
-  width: 100%;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
 }
 
 #submitBtn {
@@ -21,14 +24,14 @@ div#searchHome {
   margin: 10px;
 }
 .collapsible-body {
-  background-color: rgb(153, 204, 0);
+  /*background-color: rgb(153, 204, 0);*/
 }
 div.nav-wrapper {
   background-color: rgb(153, 204, 0);
 }
 
 .loginContainer {
-  background-image: url("./images/wuppertal.jpg");
+  background-image: url('./images/wuppertal.jpg');
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -43,4 +46,8 @@ div.nav-wrapper {
   color: white;
   background: rgba(0, 0, 0, 0.7);
   width: 70vw;
+}
+
+div.stepperButtons {
+  text-align: center;
 }

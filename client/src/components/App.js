@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import Home from "./Home";
-import "../App.css";
-import Cart from "./Cart";
-import About from "./About";
-import Collection from "./Collection";
-import User from "./User";
+import React, { Component } from 'react';
+import Header from './Header';
+import Home from './Home';
+import '../App.css';
+import CartContainer from './CartContainer';
+import About from './About';
+import Collection from './Collection';
+import ExtendedSearch from './ExtendedSearch';
 
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 class App extends Component {
   render() {
     return (
@@ -16,10 +16,10 @@ class App extends Component {
           <div>
             <Header />
             <Route exact path="/" component={Home} />
-            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/cart" component={CartContainer} />
             <Route exact path="/collection" component={Collection} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/cart/user" component={User} />
+            <Route exact path="/extendedSearch" component={ExtendedSearch} />
           </div>
         </BrowserRouter>
       </div>
