@@ -8,8 +8,39 @@ ul#nav-mobile {
 
 div#searchHome {
   padding: 50px;
-  background-color: #4caf50;
+  background-color: white;
   height: 800px;
   position: fixed;
   width: 100%;
+}
+
+#submitBtn {
+  margin: 10px;
+}
+#deleteBtn {
+  margin: 10px;
+}
+.collapsible-body {
+  background-color: rgb(153, 204, 0);
+}
+div.nav-wrapper {
+  background-color: rgb(153, 204, 0);
+}
+
+.loginContainer {
+  background-image: url("./images/wuppertal.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.loginFormContainer {
+  color: white;
+  background: rgba(0, 0, 0, 0.7);
+  width: 70vw;
 }

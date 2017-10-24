@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Input, Icon } from 'react-materialize';
-import { Visible } from 'react-grid-system';
+import React, { Component } from "react";
+import { Input, Icon } from "react-materialize";
+import { Visible } from "react-grid-system";
 
 class SearchHome extends Component {
   render() {
@@ -12,7 +12,7 @@ class SearchHome extends Component {
               <Input label="Title">
                 <Icon>search</Icon>
               </Input>
-              <button className="btn red" type="submit">
+              <button className="btn red " type="submit">
                 Search
               </button>
             </form>
