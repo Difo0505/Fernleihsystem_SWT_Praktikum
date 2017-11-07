@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-grid-system": "^3.0.7",
@@ -14,6 +15,11 @@
     "react-stepper-horizontal": "^1.0.9",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
+  },
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
   },
   "scripts": {
     "start": "react-scripts start",
