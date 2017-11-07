@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/index';
 import { Link } from 'react-router-dom';
 import { Icon, Button } from 'react-materialize';
 import Stepper from 'react-stepper-horizontal';
@@ -6,7 +9,7 @@ import Step0 from './CartSteps/Step0';
 import Step1 from './CartSteps/Step1';
 import Step2 from './CartSteps/Step2';
 import Step3 from './CartSteps/Step3';
-class CartContainer extends Component {
+class KorbContainer extends Component {
   constructor() {
     super();
     this.state = { step: 0 };
@@ -14,6 +17,7 @@ class CartContainer extends Component {
     this.previous = this.previous.bind(this);
     this.buttons = this.buttons.bind(this);
   }
+
   previous() {
     if (this.state.step > 0) {
       this.setState({ step: this.state.step - 1 });
@@ -164,5 +168,12 @@ class CartContainer extends Component {
     }
   }
 }
-
-export default CartContainer;
+function mapStateToProps(state) {
+  return {
+    korb: state.korb
+  };
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(KorbContainer);

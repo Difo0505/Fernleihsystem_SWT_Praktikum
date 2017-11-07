@@ -1,12 +1,14 @@
 img#logo {
-  height: 50px !important; }
-
+  height: 50px !important;
+}
 .booksCollection {
   text-transform: capitalize;
-  font-size: 14px; }
+  font-size: 14px;
+}
 
 ul#nav-mobile {
-  background-color: black !important; }
+  background-color: black !important;
+}
 
 div#searchHome {
   margin-top: 30px;
@@ -16,22 +18,24 @@ div#searchHome {
   border-radius: 10px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.3);
-  color: white; }
+  color: white;
+}
 
 #submitBtn {
-  margin: 10px; }
-
+  margin: 10px;
+}
 #deleteBtn {
-  margin: 10px; }
-
+  margin: 10px;
+}
 .collapsible-body {
-  /*background-color: rgb(153, 204, 0);*/ }
-
+  /*background-color: rgb(153, 204, 0);*/
+}
 div.nav-wrapper {
-  background-color: #99cc33; }
+  background-color: #99cc33;
+}
 
 .loginContainer {
-  background-image: url("./images/wuppertal.jpg");
+  background-image: url('./images/wuppertal.jpg');
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -39,12 +43,15 @@ div.nav-wrapper {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative; }
+  position: relative;
+}
 
 .loginFormContainer {
   color: white;
   background: rgba(0, 0, 0, 0.7);
-  width: 70vw; }
+  width: 70vw;
+}
 
 div.stepperButtons {
-  text-align: center; }
+  text-align: center;
+}

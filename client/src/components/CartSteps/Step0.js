@@ -1,47 +1,59 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions/index';
 
 class Step0 extends Component {
+  constructor() {
+    super();
+    this.delete = this.delete.bind(this);
+    this.state = { korb: null };
+  }
+  componentDidMount() {
+    this.setState({ korb: this.props.korb });
+  }
+  componentWillReceiveProps(newKorb) {
+    this.setState({ korb: newKorb });
+  }
+  delete(element) {
+    this.props.DeleteFromKorb(element);
+  }
   render() {
+    console.log(this.props.korb);
+    if (this.props.korb.arr.length === 0) {
+      return (
+        <div className="center">
+          <h5>You have no Orders yet</h5>
+        </div>
+      );
+    }
+
     return (
       <div>
-        <div>
-          <ul className="collection with-header">
-            <li className="collection-header">
-              <h4>Your Orders</h4>
-            </li>
-            <li className="collection-item">
-              <div>
-                book1<a href="#!" class="secondary-content">
+        <ul className="collection with-header">
+          {this.props.korb.arr.map(element => {
+            return (
+              <li key={element.id} className="collection-item">
+                {element.text}
+                <a
+                  style={{ cursor: 'pointer' }}
+                  className="secondary-content"
+                  onClick={this.delete.bind(null, element)}
+                >
                   <i className="material-icons">delete</i>
                 </a>
-              </div>
-            </li>
-            <li className="collection-item">
-              <div>
-                book2<a href="#!" className="secondary-content">
-                  <i className="material-icons">delete</i>
-                </a>
-              </div>
-            </li>
-            <li className="collection-item">
-              <div>
-                book3<a href="#!" className="secondary-content">
-                  <i className="material-icons">delete</i>
-                </a>
-              </div>
-            </li>
-            <li class="collection-item">
-              <div>
-                book4<a href="#!" className="secondary-content">
-                  <i className="material-icons">delete</i>
-                </a>
-              </div>
-            </li>
-          </ul>
-        </div>
+              </li>
+            );
+          })}
+        </ul>
       </div>
     );
   }
 }
-
-export default Step0;
+function mapStateToProps(state) {
+  return { korb: state.korb };
+}
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators(actions, dispatch);
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Step0);

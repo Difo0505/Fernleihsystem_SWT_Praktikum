@@ -1,5 +1,7 @@
-import { combineReducers } from "redux";
-import bookReducer from "./bookReducer";
+import { combineReducers } from 'redux';
+import bookReducer from './bookReducer';
+import korbReducer from './korbReducer';
 export default combineReducers({
-  book: bookReducer
+  book: bookReducer,
+  korb: korbReducer
 });
