@@ -34,7 +34,7 @@ class Step0 extends Component {
           {this.props.korb.arr.map(element => {
             return (
               <li key={element.id} className="collection-item">
-                {element.text}
+                {element.title}
                 <a
                   style={{ cursor: 'pointer' }}
                   className="secondary-content"

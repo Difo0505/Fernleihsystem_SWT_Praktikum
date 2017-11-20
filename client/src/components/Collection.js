@@ -30,17 +30,25 @@ class Collection extends Component {
     if (this.props.books) {
       return (
         <div>
-          <div style={{ padding: '50px' }}>
+          <div>
             <Collapsible>
               {this.props.books.map(book => {
                 return (
                   <CollapsibleItem
                     className="booksCollection truncate"
-                    key={book.id}
-                    header={book.text}
+                    key={book.documentid}
+                    header={book.title}
                     icon="arrow_drop_down"
                   >
-                    Year : {book.year}
+                    <p>
+                      <h5>Author :</h5> {book.author}
+                    </p>
+                    <div>
+                      <h5 style={{ display: 'inline' }}>
+                        Publishing Year :
+                      </h5>{' '}
+                      {book._year}
+                    </div>
                     <button
                       className="btn-floating red waves-effect waves-light"
                       style={{ marginLeft: '20px' }}

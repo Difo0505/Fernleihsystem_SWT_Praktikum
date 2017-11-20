@@ -3,7 +3,19 @@ img#logo {
 
 .booksCollection {
   text-transform: capitalize;
-  font-size: 14px; }
+  font-size: 14px;
+  margin: 15px;
+  width: 50%; }
+
+.collapsible-header {
+  background-color: #f44336 !important;
+  color: white;
+  border-radius: 10px; }
+
+.collapsible-body {
+  background-color: #607d8b !important;
+  color: white;
+  border-radius: 10px; }
 
 ul#nav-mobile {
   background-color: black !important; }
