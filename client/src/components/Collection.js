@@ -37,17 +37,15 @@ class Collection extends Component {
                   <CollapsibleItem
                     className="booksCollection truncate"
                     key={book.documentid}
-                    header={book.title}
+                    header={book.titel}
                     icon="arrow_drop_down"
                   >
                     <p>
-                      <h5>Author :</h5> {book.author}
+                      <h5>Author :</h5> {book.autor}
                     </p>
                     <div>
-                      <h5 style={{ display: 'inline' }}>
-                        Publishing Year :
-                      </h5>{' '}
-                      {book._year}
+                      <h5 style={{ display: 'inline' }}>Publishing Year :</h5>{' '}
+                      {book.jahr}
                     </div>
                     <button
                       className="btn-floating red waves-effect waves-light"

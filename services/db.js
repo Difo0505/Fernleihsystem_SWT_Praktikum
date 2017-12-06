@@ -3,6 +3,6 @@ const db = mySql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'library'
+  database: 'swtpraktikum'
 });
 module.exports = db;
