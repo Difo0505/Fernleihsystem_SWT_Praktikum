@@ -29,4 +29,29 @@ module.exports = app => {
       res.send(JSON.stringify(results));
     });
   });
+
+  //fetch search results by "author"
+  app.post('/api/searchBy/author', async (req, res) => {
+    let sql =
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid AND autor.autor LIKE "%' +
+      req.body.value +
+      '%"';
+    let query = await db.query(sql, (err, results) => {
+      if (err) throw err;
+      res.send(JSON.stringify(results));
+    });
+  });
+
+  //fetch search results by title
+  app.post('/api/searchBy/titel', async (req, res) => {
+    let sql =
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid AND dokument.titel LIKE "%' +
+      req.body.value +
+      '%"';
+    let query = await db.query(sql, (err, results) => {
+      if (err) throw err;
+      console.log(JSON.stringify(results));
+      res.send(JSON.stringify(results));
+    });
+  });
 };
