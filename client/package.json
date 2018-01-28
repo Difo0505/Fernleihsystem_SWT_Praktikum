@@ -19,7 +19,11 @@
     "redux-thunk": "^2.2.0",
     "validator": "^9.2.0"
   },
-
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5000"
+    }
+  },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css":
