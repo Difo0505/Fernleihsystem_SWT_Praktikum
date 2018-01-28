@@ -4,8 +4,7 @@ img#logo {
 .booksCollection {
   text-transform: capitalize;
   font-size: 14px;
-  margin: 15px;
-  width: 50%; }
+  margin: 15px; }
 
 .collapsible-header {
   background-color: #f44336 !important;
@@ -43,7 +42,7 @@ div.nav-wrapper {
   background-color: #99cc33; }
 
 .loginContainer {
-  background-image: url("./images/wuppertal.jpg");
+  background-image: url("./images/bib.jpeg");
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -60,3 +59,13 @@ div.nav-wrapper {
 
 div.stepperButtons {
   text-align: center; }
+
+div.sort {
+  display: flex !important; }
+  div.sort label.active {
+    color: white; }
+
+.books {
+  display: flex; }
+  .books ul.collapsible {
+    width: 70%; }

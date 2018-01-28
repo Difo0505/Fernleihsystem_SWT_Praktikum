@@ -20,14 +20,14 @@ class KorbContainer extends Component {
 
   previous() {
     if (this.state.step > 0) {
-      this.setState({ step: this.state.step - 1 });
       this.props.changeStep(this.state.step - 1);
+      //  this.setState({ step: this.props.step});
     }
   }
   next() {
     if (this.state.step < 3) {
-      this.setState({ step: this.state.step + 1 });
       this.props.changeStep(this.state.step + 1);
+      //  this.setState({ step: this.props.step});
     }
   }
   buttons() {
@@ -66,7 +66,16 @@ class KorbContainer extends Component {
       </div>
     );
   }
-
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
+    if (nextProps.step !== this.state.step) {
+      console.log(nextProps.step);
+      this.setState({ step: nextProps.step });
+    }
+  }
+  componentDidMount() {
+    this.props.changeStep(0);
+  }
   render() {
     switch (this.state.step) {
       case 0:
