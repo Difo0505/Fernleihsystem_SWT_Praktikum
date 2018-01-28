@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { bindActionCreators } from "redux";
-import { connect } from "react-redux";
-import * as actions from "../actions/index";
-import { Col, Card } from "react-materialize";
+import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import * as actions from '../actions/index';
+import { Col, Card } from 'react-materialize';
 class userInfos extends Component {
   constructor() {
     super();
@@ -21,31 +21,45 @@ class userInfos extends Component {
           <h3>Please Check if these Informations are correct</h3>
           <br />
 
-          <Card
-            className="blue-grey darken-1"
-            textClassName="white-text"
-            title="Documents"
-          >
+          <div id="checkDocumentContainer">
+            <h3>Documents</h3>
             {this.props.korb.arr.map(book => {
-              return <h6 key={book.dokumentid}>{book.titel}</h6>;
+              return (
+                <div key={book.dokumentid} id="checkDocumentElement">
+                  <h6>{book.titel}</h6>
+                </div>
+              );
             })}
-          </Card>
+          </div>
           <br />
-          <h3>userInfos: </h3>
+
           <Col m={6} s={12}>
-            <Card
-              className="blue-grey darken-1"
-              textClassName="white-text"
-              title="User Infos"
-            >
-              <h6>First Name : {this.props.userInfos.vorname}</h6>
-              <h6>Last Name : {this.props.userInfos.nachname}</h6>
-              <h6>Email : {this.props.userInfos.email}</h6>
-              <h6>Street : {this.props.userInfos.strasse}</h6>
-              <h6>House Number : {this.props.userInfos.hausnummer}</h6>
-              <h6>Postcode : {this.props.userInfos.plz}</h6>
-              <h6>City : {this.props.userInfos.stadt}</h6>
-            </Card>
+            <div id="checkUserInfosContainer">
+              <h3>User Informations</h3>
+              <div className="checkUserInfosElement">
+                <h6>First Name : {this.props.userInfos.vorname}</h6>
+              </div>
+              <div>
+                <div className="checkUserInfosElement">
+                  <h6>Last Name : {this.props.userInfos.nachname}</h6>
+                </div>
+              </div>
+              <div className="checkUserInfosElement">
+                <h6>Email : {this.props.userInfos.email}</h6>
+              </div>
+              <div className="checkUserInfosElement">
+                <h6>Street : {this.props.userInfos.strasse}</h6>
+              </div>
+              <div className="checkUserInfosElement">
+                <h6>House Number : {this.props.userInfos.hausnummer}</h6>
+              </div>
+              <div className="checkUserInfosElement">
+                <h6>Postcode : {this.props.userInfos.plz}</h6>
+              </div>
+              <div className="checkUserInfosElement">
+                <h6>City : {this.props.userInfos.stadt}</h6>
+              </div>
+            </div>
           </Col>
         </div>
       );

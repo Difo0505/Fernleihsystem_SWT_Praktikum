@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import * as actions from "../../actions/index";
-import { Link } from "react-router-dom";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../../actions/index';
+import { Link } from 'react-router-dom';
 class Step0 extends Component {
   constructor() {
     super();
@@ -29,14 +29,14 @@ class Step0 extends Component {
     }
 
     return (
-      <div>
+      <div className="orderContainer">
         <ul className="collection with-header">
           {this.props.korb.arr.map(element => {
             return (
               <li key={element.dokumentid} className="collection-item">
                 {element.titel}
                 <a
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: 'pointer' }}
                   className="secondary-content"
                   onClick={this.delete.bind(null, element)}
                 >
@@ -46,8 +46,7 @@ class Step0 extends Component {
             );
           })}
         </ul>
-        <Link to="/step1" className="btn">
-          {" "}
+        <Link to="/step1" className="btn red">
           Next
         </Link>
       </div>

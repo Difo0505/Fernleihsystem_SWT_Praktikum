@@ -47,7 +47,7 @@ div.nav-wrapper {
 }
 
 .loginContainer {
-  background-image: url("./images/bib.jpeg");
+  background-image: url('./images/bib.jpeg');
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -78,4 +78,175 @@ div.sort {
     width: 70%;
   }
   display: flex;
+}
+
+#checkDocumentContainer,
+#checkUserInfosContainer {
+  // padding: 50px;
+  background-color: #99cc33;
+  color: white;
+  padding: 50px;
+  text-transform: capitalize;
+  margin: 1em;
+  border-radius: 5px;
+  #checkDocumentElement,
+  .checkUserInfosElement {
+    margin-top: 1em;
+    background-color: white;
+    color: #616161;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    border-radius: 5px;
+  }
+}
+
+.orderContainer {
+  margin: 1em;
+  .collection-item {
+    background-color: #4caf50;
+    color: white;
+    margin-top: 1em;
+    border-radius: 5px;
+    text-transform: capitalize;
+    i.material-icons {
+      color: white;
+    }
+  }
+}
+
+#lastStepContainer {
+  background-color: #f44336;
+  color: white;
+  height: 100vh;
+  text-align: center;
+  padding: 20%;
+  .chip {
+    font-size: 15px;
+  }
+}
+
+.orderState {
+  background-color: white;
+  color: #616161;
+  padding: 10%;
+  margin: 2%;
+  border-radius: 5px;
+}
+
+.checkOrderStateContainer {
+  background-color: #f44336;
+  padding: 10%;
+  color: white;
+  text-transform: capitalize;
+  form {
+    margin-top: 5px !important;
+  }
+}
+
+// loader css
+$animationLength: 1.5s;
+$animationRadius: 12px;
+$dotSize: 8px;
+
+.sampleContainer {
+  margin-top: 250px;
+}
+
+.loader {
+  position: relative;
+  width: $animationRadius * 3 + $dotSize;
+  height: $dotSize;
+  margin: $animationRadius auto;
+}
+
+.dot {
+  display: inline-block;
+  width: $dotSize;
+  height: $dotSize;
+  border-radius: $dotSize * 0.5;
+  background: #ccc;
+  position: absolute;
+}
+
+.dot_1 {
+  animation: animateDot1 $animationLength linear infinite;
+  left: $animationRadius;
+  background: #e579b8;
+}
+
+.dot_2 {
+  animation: animateDot2 $animationLength linear infinite;
+  animation-delay: $animationLength / 3;
+  left: $animationRadius * 2;
+}
+
+.dot_3 {
+  animation: animateDot3 $animationLength linear infinite;
+  left: $animationRadius;
+}
+
+.dot_4 {
+  animation: animateDot4 $animationLength linear infinite;
+  animation-delay: $animationLength / 3;
+  left: $animationRadius * 2;
+}
+
+@keyframes animateDot1 {
+  0% {
+    transform: rotate(0deg) translateX(-$animationRadius);
+  }
+  25% {
+    transform: rotate(180deg) translateX(-$animationRadius);
+  }
+  75% {
+    transform: rotate(180deg) translateX(-$animationRadius);
+  }
+  100% {
+    transform: rotate(360deg) translateX(-$animationRadius);
+  }
+}
+
+@keyframes animateDot2 {
+  0% {
+    transform: rotate(-0deg) translateX(-$animationRadius);
+  }
+  25% {
+    transform: rotate(-180deg) translateX(-$animationRadius);
+  }
+  75% {
+    transform: rotate(-180deg) translateX(-$animationRadius);
+  }
+  100% {
+    transform: rotate(-360deg) translateX(-$animationRadius);
+  }
+}
+
+@keyframes animateDot3 {
+  0% {
+    transform: rotate(0deg) translateX($animationRadius);
+  }
+  25% {
+    transform: rotate(180deg) translateX($animationRadius);
+  }
+  75% {
+    transform: rotate(180deg) translateX($animationRadius);
+  }
+  100% {
+    transform: rotate(360deg) translateX($animationRadius);
+  }
+}
+
+@keyframes animateDot4 {
+  0% {
+    transform: rotate(-0deg) translateX($animationRadius);
+  }
+  25% {
+    transform: rotate(-180deg) translateX($animationRadius);
+  }
+  75% {
+    transform: rotate(-180deg) translateX($animationRadius);
+  }
+  100% {
+    transform: rotate(-360deg) translateX($animationRadius);
+  }
 }

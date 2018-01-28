@@ -28,6 +28,10 @@ class Header extends Component {
               <Icon>shopping_cart</Icon>
             </Link>
           </NavItem>
+
+          <NavItem>
+            <Link to="/orderState">Order State</Link>
+          </NavItem>
           <NavItem>
             <Link to="/about">About</Link>
           </NavItem>

@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import Header from "./Header";
-import Home from "./Home";
-import "../App.css";
-import KorbContainer from "./KorbContainer2";
-import Korb from "./Korb";
-import About from "./About";
-import Collection from "./Collection";
-import ExtendedSearch from "./ExtendedSearch";
-import Step1 from "./CartSteps/Step1";
-import Step2 from "./CartSteps/Step2";
-import Step3 from "./CartSteps/Step3";
-import { BrowserRouter, Route } from "react-router-dom";
+import React, { Component } from 'react';
+import Header from './Header';
+import Home from './Home';
+import '../App.css';
+import KorbContainer from './KorbContainer2';
+import Korb from './Korb';
+import About from './About';
+import Collection from './Collection';
+import ExtendedSearch from './ExtendedSearch';
+import Step1 from './CartSteps/Step1';
+import Step2 from './CartSteps/Step2';
+import Step3 from './CartSteps/Step3';
+import OrderState from './OrderState';
+import { BrowserRouter, Route } from 'react-router-dom';
 class App extends Component {
   render() {
     return (
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path="/step1" component={Step1} />
             <Route exact path="/confirmation" component={Step2} />
             <Route exact path="/orderReceived" component={Step3} />
+            <Route exact path="/orderState" component={OrderState} />
           </div>
         </BrowserRouter>
       </div>

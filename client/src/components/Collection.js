@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-grid-system";
-import SearchHome from "./SearchHome";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { ToastContainer, toast } from "react-toastify";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-grid-system';
+import SearchHome from './SearchHome';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ToastContainer, toast } from 'react-toastify';
 
-import "react-toastify/dist/ReactToastify.min.css";
-import * as actions from "../actions/index";
+import 'react-toastify/dist/ReactToastify.min.css';
+import * as actions from '../actions/index';
 import {
   Input,
   Icon,
@@ -14,14 +14,15 @@ import {
   CollapsibleItem,
   Pagination,
   Card
-} from "react-materialize";
+} from 'react-materialize';
 
 class Collection extends Component {
   constructor() {
     super();
     this.state = {
-      sortBy: "Alphabetical Order",
-      books: null
+      sortBy: 'Alphabetical Order',
+      books: null,
+      loading: false
     };
     this.addToCorb = this.addToCorb.bind(this);
     this.changeSortBy = this.changeSortBy.bind(this);
@@ -29,19 +30,19 @@ class Collection extends Component {
   async changeSortBy(e) {
     var item = e.target.value;
     await this.setState({ sortBy: e.target.value });
-    if (item === "Alphabetical Order") {
+    if (item === 'Alphabetical Order') {
       this.props.FetchBook();
     }
-    if (item === "Publishing Year Ascending") {
+    if (item === 'Publishing Year Ascending') {
       this.props.FetchBooksYearAsc();
     }
-    if (item === "Publishing Year Descending") {
+    if (item === 'Publishing Year Descending') {
       this.props.FetchBooksYearDesc();
     }
   }
   addToCorb(book) {
     this.props.PostToKorb(book);
-    toast.error("Added !", { position: toast.POSITION.BOTTOM_RIGHT });
+    toast.error('Added !', { position: toast.POSITION.BOTTOM_RIGHT });
   }
   async componentWillMount() {
     await this.props.FetchBook();
@@ -55,9 +56,13 @@ class Collection extends Component {
     ) {
       this.setState({ books: nextProps.books });
     }
+    if (nextProps.loading !== this.state.loading) {
+      console.log('loading will receive : ', nextProps.loading);
+      this.setState({ loading: nextProps.loading });
+    }
   }
   render() {
-    if (this.state.books) {
+    if (this.state.books && !this.state.loading) {
       var key = 0;
       return (
         <div>
@@ -106,12 +111,12 @@ class Collection extends Component {
                       <h5>Author :</h5> {book.autor}
                     </p>
                     <div>
-                      <h5 style={{ display: "inline" }}>Publishing Year :</h5>
+                      <h5 style={{ display: 'inline' }}>Publishing Year :</h5>
                       {book.jahr}
                     </div>
                     <button
                       className="btn-floating red waves-effect waves-light"
-                      style={{ marginLeft: "20px" }}
+                      style={{ marginLeft: '20px' }}
                       onClick={this.addToCorb.bind(null, book)}
                     >
                       <i className="material-icons">add</i>
@@ -122,12 +127,6 @@ class Collection extends Component {
             </Collapsible>
             <SearchHome />
           </div>
-          <Pagination
-            items={3}
-            activePage={1}
-            maxButtons={8}
-            className="center"
-          />
 
           <ToastContainer
             position="top-right"
@@ -139,14 +138,25 @@ class Collection extends Component {
           />
         </div>
       );
+    } else if (this.state.loading || !this.state.books) {
+      return (
+        <div className="sampleContainer">
+          <div className="loader">
+            <span className="dot dot_1" />
+            <span className="dot dot_2" />
+            <span className="dot dot_3" />
+            <span className="dot dot_4" />
+          </div>
+        </div>
+      );
     }
-    return <div>waiting</div>;
   }
 }
 
 function mapStateToProps(state) {
   return {
-    books: state.book
+    books: state.book,
+    loading: state.loading
   };
 }
 function mapDispatchToProps(dispatch) {
