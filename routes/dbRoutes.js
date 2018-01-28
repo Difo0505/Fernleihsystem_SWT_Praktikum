@@ -7,7 +7,7 @@ module.exports = app => {
   //fetch books alph order
   app.get('/api/getBook', async (req, res) => {
     let sql =
-      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid order by titel ASC';
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokumentid=autor.autorid AND dokument.dokumentid = dokument_autor.dokumentid order by titel ASC LIMIT 20';
     let query = await db.query(sql, (err, results) => {
       if (err) throw err;
       res.send(JSON.stringify(results));
@@ -17,7 +17,7 @@ module.exports = app => {
   //fetch books year asc
   app.get('/api/getBook/year/asc', async (req, res) => {
     let sql =
-      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid order by jahr ASC';
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokumentid order by jahr ASC LIMIT 20';
     let query = await db.query(sql, (err, results) => {
       if (err) throw err;
       res.send(JSON.stringify(results));
@@ -26,7 +26,7 @@ module.exports = app => {
   //fetch books year desc
   app.get('/api/getBook/year/desc', async (req, res) => {
     let sql =
-      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid order by jahr DESC';
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokumentid order by jahr DESC LIMIT 20';
     let query = await db.query(sql, (err, results) => {
       if (err) throw err;
       res.send(JSON.stringify(results));
@@ -36,7 +36,7 @@ module.exports = app => {
   //fetch search results by "author"
   app.post('/api/searchBy/author', async (req, res) => {
     let sql =
-      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid AND autor.autor LIKE "%' +
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokumentid AND autor.autor LIKE "%' +
       req.body.value +
       '%"';
     let query = await db.query(sql, (err, results) => {
@@ -48,7 +48,7 @@ module.exports = app => {
   //fetch search results by title
   app.post('/api/searchBy/titel', async (req, res) => {
     let sql =
-      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokument_dokumentid AND dokument.titel LIKE "%' +
+      'SELECT * FROM dokument JOIN dokument_autor JOIN autor WHERE dokument_autor.dokument_autorid=autor.autorid AND dokument.dokumentid = dokument_autor.dokumentid AND dokument.titel LIKE "%' +
       req.body.value +
       '%"';
     let query = await db.query(sql, (err, results) => {
