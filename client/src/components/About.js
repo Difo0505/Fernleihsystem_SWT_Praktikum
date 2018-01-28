@@ -11,26 +11,32 @@ class About extends Component {
           <div className="section white">
             <div className="row container">
               <h2 className="header">About</h2>
+              <br />
+              <h4> Die Freiburger Intervallbibliothek</h4>
+              <br />
+              <h6> Einige Anmerkungen von W. Hofschuster </h6>
               <p className="grey-text text-darken-3 lighten-3">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corrupti itaque quasi impedit enim doloribus cumque illum
-                recusandae voluptatum. Eius error corporis fugiat temporibus hic
-                quod eveniet nam possimus aliquid! Facere enim doloribus sunt
-                reprehenderit distinctio tempore inventore ratione! Earum, iusto
-                adipisci non dignissimos delectus eveniet facere nihil
-                temporibus explicabo deserunt molestias praesentium, quidem, est
-                eos distinctio laboriosam corrupti ab amet pariatur officia
-                dolorum recusandae veniam ducimus nostrum! Cupiditate odio,
-                veniam accusantium ducimus ea in! Suscipit sequi similique
-                beatae maxime, magni ea minima? Ad facilis tempore minus odit
-                accusantium, rem facere quae, quod voluptas omnis nulla, est
-                similique? Voluptatum amet aut, adipisci culpa officiis fugiat
-                quis blanditiis voluptatem. Nemo recusandae consectetur ad
-                aperiam cupiditate libero maiores nam deserunt, doloremque
-                facilis veniam obcaecati vitae quis illum. Quas animi, eligendi
-                dolor quod. Ut animi et saepe veritatis, in sint officiis
-                voluptas iste itaque eos alias, rerum vel, quidem mollitia,
-                dolorem nesciunt illo! Et!
+                Prof Dr. Karl Nickel (1924-2009) war ab 1962 zunächst Professor
+                an der Universitat Karlsruhe und von 1976-1989 mit seiner
+                Forschergruppe an der Universität Freiburg tätig. In dieser Zeit
+                war er einer der führenden Forscher der Intervalmathematik in
+                Deutschland. Zunächst an seinem Institut in Karlsruhe und später
+                dann in Freiburg wurde alle verfügbare Literatur zur
+                Intervallarithmetik systematisch gesammelt. Hieraus ist die
+                sogenannte Freiburger Intervallbibliothek entstanden und enthält
+                heute mehr als 2000 Veröffentlichungen, die bis zum Jahre 1987
+                von Jürgen Garloff in Freiburg zusammen getragen wurden. Diese
+                Bibliothek wurde später von Prof. Helmut Ratschek am
+                Mathematischen Institut der Universität Düsseldorf übernommen
+                und dort weiter betreut. Nach dem Eintritt in den Ruhestand von
+                Herrn Ratschek im Jahre 2006 wurde die Bibliothek vom Prof. Dr.
+                Walter Krämer an die Bergische Universität Wuppertal geholt und
+                hat hier einen Ort gefunden, an dem sie in ihrer Gesamtheit
+                bewahrt werden konnte. Mehrere Forscherinnen und Forscher
+                weltweit waren bereits dank der Freiburger Intervallbibliothek
+                in der Lage, auf Veröffentlichungen aus der Anfangszeit der
+                Intervallmathematik zurückgreifen zu können, die in deren
+                Bibliotheken nur schwer oder gar nicht mehr verfügbar sind.
               </p>
             </div>
           </div>

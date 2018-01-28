@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
-import { Row, Col } from 'react-grid-system';
-import SearchHome from './SearchHome';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { ToastContainer, toast } from 'react-toastify';
-
-import 'react-toastify/dist/ReactToastify.min.css';
-import * as actions from '../actions/index';
+import React, { Component } from "react";
+import { Row, Col } from "react-grid-system";
+import SearchHome from "./SearchHome";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { ToastContainer, toast } from "react-toastify";
+import { Link } from "react-router-dom";
+import "react-toastify/dist/ReactToastify.min.css";
+import * as actions from "../actions/index";
 import {
   Input,
   Icon,
@@ -14,13 +14,13 @@ import {
   CollapsibleItem,
   Pagination,
   Card
-} from 'react-materialize';
+} from "react-materialize";
 
 class Collection extends Component {
   constructor() {
     super();
     this.state = {
-      sortBy: 'Alphabetical Order',
+      sortBy: "Alphabetical Order",
       books: null,
       loading: false
     };
@@ -30,19 +30,19 @@ class Collection extends Component {
   async changeSortBy(e) {
     var item = e.target.value;
     await this.setState({ sortBy: e.target.value });
-    if (item === 'Alphabetical Order') {
+    if (item === "Alphabetical Order") {
       this.props.FetchBook();
     }
-    if (item === 'Publishing Year Ascending') {
+    if (item === "Publishing Year Ascending") {
       this.props.FetchBooksYearAsc();
     }
-    if (item === 'Publishing Year Descending') {
+    if (item === "Publishing Year Descending") {
       this.props.FetchBooksYearDesc();
     }
   }
   addToCorb(book) {
     this.props.PostToKorb(book);
-    toast.error('Added !', { position: toast.POSITION.BOTTOM_RIGHT });
+    toast.error("Added !", { position: toast.POSITION.BOTTOM_RIGHT });
   }
   async componentWillMount() {
     await this.props.FetchBook();
@@ -57,7 +57,7 @@ class Collection extends Component {
       this.setState({ books: nextProps.books });
     }
     if (nextProps.loading !== this.state.loading) {
-      console.log('loading will receive : ', nextProps.loading);
+      console.log("loading will receive : ", nextProps.loading);
       this.setState({ loading: nextProps.loading });
     }
   }
@@ -72,28 +72,40 @@ class Collection extends Component {
               textClassName="white-text"
               title="Sort By:"
             >
-              <Input
-                name="group1"
-                type="radio"
-                value="Publishing Year Ascending"
-                label="Publishing Year Ascending"
-                onChange={this.changeSortBy}
-                className="input1"
-              />
-              <Input
-                name="group1"
-                type="radio"
-                value="Publishing Year Descending"
-                label="Publishing Year Descending"
-                onChange={this.changeSortBy}
-              />
-              <Input
-                name="group1"
-                type="radio"
-                value="Alphabetical Order"
-                label="Alphabetical Order"
-                onChange={this.changeSortBy}
-              />
+              <Row>
+                {" "}
+                <Col>
+                  {" "}
+                  <Input
+                    name="group1"
+                    type="radio"
+                    value="Publishing Year Ascending"
+                    label="Publishing Year Ascending"
+                    onChange={this.changeSortBy}
+                    className="input1"
+                  />
+                  <Input
+                    name="group1"
+                    type="radio"
+                    value="Publishing Year Descending"
+                    label="Publishing Year Descending"
+                    onChange={this.changeSortBy}
+                  />
+                  <Input
+                    name="group1"
+                    type="radio"
+                    value="Alphabetical Order"
+                    label="Alphabetical Order"
+                    onChange={this.changeSortBy}
+                  />
+                </Col>
+                <Col l={4} m={6} s={12} className="searchBooks">
+                  Search Books:
+                  <Link to="/extendedSearch" className="btn red searchBtn">
+                    <Icon>search</Icon>
+                  </Link>
+                </Col>
+              </Row>
             </Card>
           </Col>
 
@@ -107,16 +119,14 @@ class Collection extends Component {
                     header={book.titel}
                     icon="arrow_drop_down"
                   >
-                    <p>
-                      <h5>Author :</h5> {book.autor}
-                    </p>
+                    Author : {book.autor}
                     <div>
-                      <h5 style={{ display: 'inline' }}>Publishing Year :</h5>
+                      Publishing Year :
                       {book.jahr}
                     </div>
                     <button
                       className="btn-floating red waves-effect waves-light"
-                      style={{ marginLeft: '20px' }}
+                      style={{ marginLeft: "20px" }}
                       onClick={this.addToCorb.bind(null, book)}
                     >
                       <i className="material-icons">add</i>
@@ -124,8 +134,7 @@ class Collection extends Component {
                   </CollapsibleItem>
                 );
               })}
-            </Collapsible>
-            <SearchHome />
+            </Collapsible>{" "}
           </div>
 
           <ToastContainer

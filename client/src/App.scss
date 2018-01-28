@@ -22,17 +22,6 @@ ul#nav-mobile {
   background-color: black !important;
 }
 
-div#searchHome {
-  margin-top: 30px;
-  margin-left: 50px;
-  padding: 15px;
-  position: fixed;
-  border-radius: 10px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white;
-}
-
 #submitBtn {
   margin: 10px;
 }
@@ -47,7 +36,7 @@ div.nav-wrapper {
 }
 
 .loginContainer {
-  background-image: url('./images/bib.jpeg');
+  background-image: url("./images/bib.jpeg");
   height: 100vh;
   background-size: cover;
   background-position: center;
@@ -72,10 +61,15 @@ div.sort {
   label.active {
     color: white;
   }
+  div.searchBooks {
+    .searchBtn {
+      width: 20%;
+    }
+  }
 }
 .books {
   ul.collapsible {
-    width: 70%;
+    width: 100%;
   }
   display: flex;
 }
@@ -134,7 +128,7 @@ div.sort {
 }
 
 .checkOrderStateContainer {
-  background-color: #f44336;
+  background-color: #616161;
   padding: 10%;
   color: white;
   text-transform: capitalize;
@@ -248,5 +242,40 @@ $dotSize: 8px;
   }
   100% {
     transform: rotate(-360deg) translateX($animationRadius);
+  }
+}
+
+div.searching {
+  label.active {
+    color: white;
+  }
+  div.srch {
+    padding-left: 5%;
+  }
+
+  margin-top: 30px;
+  margin-left: 5%;
+  padding: 15px;
+  //  position: fixed;
+  border-radius: 10px;
+  //text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
+div#searchHome {
+  margin-top: 30px;
+  margin-left: 50px;
+  padding: 15px;
+  position: fixed;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  div#searchHome {
+    position: relative !important;
   }
 }

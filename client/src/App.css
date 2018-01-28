@@ -19,16 +19,6 @@ img#logo {
 ul#nav-mobile {
   background-color: black !important; }
 
-div#searchHome {
-  margin-top: 30px;
-  margin-left: 50px;
-  padding: 15px;
-  position: fixed;
-  border-radius: 10px;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  color: white; }
-
 #submitBtn {
   margin: 10px; }
 
@@ -64,11 +54,13 @@ div.sort {
   display: flex !important; }
   div.sort label.active {
     color: white; }
+  div.sort div.searchBooks .searchBtn {
+    width: 20%; }
 
 .books {
   display: flex; }
   .books ul.collapsible {
-    width: 70%; }
+    width: 100%; }
 
 #checkDocumentContainer,
 #checkUserInfosContainer {
@@ -117,7 +109,7 @@ div.sort {
   border-radius: 5px; }
 
 .checkOrderStateContainer {
-  background-color: #f44336;
+  background-color: #616161;
   padding: 10%;
   color: white;
   text-transform: capitalize; }
@@ -199,3 +191,30 @@ div.sort {
     transform: rotate(-180deg) translateX(12px); }
   100% {
     transform: rotate(-360deg) translateX(12px); } }
+
+div.searching {
+  margin-top: 30px;
+  margin-left: 5%;
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white; }
+  div.searching label.active {
+    color: white; }
+  div.searching div.srch {
+    padding-left: 5%; }
+
+div#searchHome {
+  margin-top: 30px;
+  margin-left: 50px;
+  padding: 15px;
+  position: fixed;
+  border-radius: 10px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white; }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  div#searchHome {
+    position: relative !important; } }

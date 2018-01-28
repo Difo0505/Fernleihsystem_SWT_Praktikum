@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import { Input } from 'react-materialize';
-import * as actions from '../actions/index';
+import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import { Input } from "react-materialize";
+import * as actions from "../actions/index";
 
 class OrderState extends Component {
   constructor() {
     super();
-    this.state = { id: '', orderState: null };
+    this.state = { id: "", orderState: null };
     this.onIdChange = this.onIdChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
     this.orderState = this.orderState.bind(this);
@@ -25,8 +25,8 @@ class OrderState extends Component {
     var year = temp.getFullYear();
     var month = temp.getMonth();
     var day = temp.getUTCDate();
-    console.log(year, '/', month, '/', day);
-    return year + '/' + month + 1 + '/' + day;
+    console.log(year, "/", month, "/", day);
+    return year + "/" + month + 1 + "/" + day;
   }
   onIdChange(e) {
     this.setState({ id: e.currentTarget.value });
@@ -37,13 +37,13 @@ class OrderState extends Component {
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.orderState !== this.state.orderState) {
-      console.log('order state wsel', nextProps.orderState);
+      console.log("order state wsel", nextProps.orderState);
       this.setState({ orderState: nextProps.orderState });
     }
   }
   orderState() {
     if (this.state.orderState) {
-      if (this.state.orderState === 'not found') {
+      if (this.state.orderState === "not found") {
         return <div className="orderState">Sorry Your Order's ID is wrong</div>;
       } else {
         return (
@@ -71,7 +71,7 @@ class OrderState extends Component {
             value={this.state.id}
             onChange={this.onIdChange}
           />
-          <button className="btn  light-blue darken-2" type="Submit">
+          <button className="btn  red darken-2" type="Submit">
             Submit
           </button>
         </form>
