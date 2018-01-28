@@ -20,6 +20,12 @@ img#logo {
 
 ul#nav-mobile {
   background-color: black !important;
+  a {
+    color: white;
+  }
+  i {
+    color: white;
+  }
 }
 
 #submitBtn {
@@ -36,7 +42,7 @@ div.nav-wrapper {
 }
 
 .loginContainer {
-  background-image: url("./images/bib.jpeg");
+  background-image: url('./images/bib.jpeg');
   height: 100vh;
   background-size: cover;
   background-position: center;

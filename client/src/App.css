@@ -18,6 +18,10 @@ img#logo {
 
 ul#nav-mobile {
   background-color: black !important; }
+  ul#nav-mobile a {
+    color: white; }
+  ul#nav-mobile i {
+    color: white; }
 
 #submitBtn {
   margin: 10px; }
