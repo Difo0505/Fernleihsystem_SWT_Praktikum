@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //db routes
-require('./routes/index')(app);
+
 require('./routes/dbRoutes')(app);
 
 //starting the app on PORT
