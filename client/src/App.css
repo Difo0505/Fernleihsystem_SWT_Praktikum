@@ -35,21 +35,34 @@ ul#nav-mobile {
 div.nav-wrapper {
   background-color: #99cc33; }
 
-.loginContainer {
-  background-image: url("./images/bib.jpeg");
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative; }
+@media only screen and (min-width: 768px) {
+  .loginContainer {
+    background-image: url("./images/bib.jpeg");
+    height: 120vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .loginFormContainer {
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    margin: 5em; } }
 
-.loginFormContainer {
-  color: white;
-  background: rgba(0, 0, 0, 0.7);
-  width: 70vw; }
+@media only screen and (max-width: 768px) {
+  .loginContainer {
+    background-image: url("./images/bib.jpeg");
+    height: 100vh;
+    background-size: cover;
+    background-position: center; }
+  .loginFormContainer {
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    margin: 2%; }
+    .loginFormContainer i.material-icons {
+      color: white; } }
 
 div.stepperButtons {
   text-align: center; }
