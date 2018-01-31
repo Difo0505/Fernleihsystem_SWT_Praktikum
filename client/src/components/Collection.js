@@ -1,12 +1,12 @@
-import React, { Component } from "react";
-import { Row, Col } from "react-grid-system";
-import SearchHome from "./SearchHome";
-import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
-import { ToastContainer, toast } from "react-toastify";
-import { Link } from "react-router-dom";
-import "react-toastify/dist/ReactToastify.min.css";
-import * as actions from "../actions/index";
+import React, { Component } from 'react';
+import { Row, Col } from 'react-grid-system';
+import SearchHome from './SearchHome';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { ToastContainer, toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.min.css';
+import * as actions from '../actions/index';
 import {
   Input,
   Icon,
@@ -14,38 +14,52 @@ import {
   CollapsibleItem,
   Pagination,
   Card
-} from "react-materialize";
+} from 'react-materialize';
 
 class Collection extends Component {
   constructor() {
     super();
     this.state = {
-      sortBy: "Alphabetical Order",
+      sortBy: 'Alphabetical Order',
       books: null,
-      loading: false
+      loading: false,
+      position: 0
     };
     this.addToCorb = this.addToCorb.bind(this);
     this.changeSortBy = this.changeSortBy.bind(this);
+    this.loadMore = this.loadMore.bind(this);
+  }
+  async loadMore() {
+    await this.setState({ position: this.state.position + 50 });
+    if (this.state.sortBy === 'Alphabetical Order') {
+      this.props.FetchBook({ position: this.state.position });
+    }
+    if (this.state.sortBy === 'Publishing Year Ascending') {
+      this.props.FetchBooksYearAsc({ position: this.state.position });
+    }
+    if (this.state.sortBy === 'Publishing Year Descending') {
+      this.props.FetchBooksYearDesc({ position: this.state.position });
+    }
   }
   async changeSortBy(e) {
     var item = e.target.value;
-    await this.setState({ sortBy: e.target.value });
-    if (item === "Alphabetical Order") {
-      this.props.FetchBook();
+    await this.setState({ sortBy: e.target.value, position: 0 });
+    if (item === 'Alphabetical Order') {
+      this.props.FetchBook({ position: this.state.position });
     }
-    if (item === "Publishing Year Ascending") {
-      this.props.FetchBooksYearAsc();
+    if (item === 'Publishing Year Ascending') {
+      this.props.FetchBooksYearAsc({ position: this.state.position });
     }
-    if (item === "Publishing Year Descending") {
-      this.props.FetchBooksYearDesc();
+    if (item === 'Publishing Year Descending') {
+      this.props.FetchBooksYearDesc({ position: this.state.position });
     }
   }
   addToCorb(book) {
     this.props.PostToKorb(book);
-    toast.error("Added !", { position: toast.POSITION.BOTTOM_RIGHT });
+    toast.success('Added !', { position: toast.POSITION.BOTTOM_RIGHT });
   }
   async componentWillMount() {
-    await this.props.FetchBook();
+    await this.props.FetchBook({ position: this.state.position });
   }
   componentWillReceiveProps(nextProps) {
     if (!this.state.books && nextProps.books) {
@@ -57,7 +71,7 @@ class Collection extends Component {
       this.setState({ books: nextProps.books });
     }
     if (nextProps.loading !== this.state.loading) {
-      console.log("loading will receive : ", nextProps.loading);
+      console.log('loading will receive : ', nextProps.loading);
       this.setState({ loading: nextProps.loading });
     }
   }
@@ -73,9 +87,9 @@ class Collection extends Component {
               title="Sort By:"
             >
               <Row>
-                {" "}
+                {' '}
                 <Col>
-                  {" "}
+                  {' '}
                   <Input
                     name="group1"
                     type="radio"
@@ -109,32 +123,37 @@ class Collection extends Component {
             </Card>
           </Col>
 
-          <div className="books">
-            <Collapsible>
-              {this.state.books.map(book => {
-                return (
-                  <CollapsibleItem
-                    className="booksCollection truncate"
-                    key={key++}
-                    header={book.titel}
-                    icon="arrow_drop_down"
-                  >
-                    Author : {book.autor}
-                    <div>
-                      Publishing Year :
-                      {book.jahr}
-                    </div>
-                    <button
-                      className="btn-floating red waves-effect waves-light"
-                      style={{ marginLeft: "20px" }}
-                      onClick={this.addToCorb.bind(null, book)}
+          <div className="center">
+            <div className="books">
+              <Collapsible>
+                {this.state.books.map(book => {
+                  return (
+                    <CollapsibleItem
+                      className="booksCollection truncate"
+                      key={key++}
+                      header={book.titel}
+                      icon="arrow_drop_down"
                     >
-                      <i className="material-icons">add</i>
-                    </button>
-                  </CollapsibleItem>
-                );
-              })}
-            </Collapsible>{" "}
+                      Author : {book.autor}
+                      <div>
+                        Publishing Year :
+                        {book.jahr}
+                      </div>
+                      <button
+                        className="btn-floating red waves-effect waves-light"
+                        style={{ marginLeft: '20px' }}
+                        onClick={this.addToCorb.bind(null, book)}
+                      >
+                        <i className="material-icons">add</i>
+                      </button>
+                    </CollapsibleItem>
+                  );
+                })}
+              </Collapsible>
+            </div>
+            <button className="btn" onClick={this.loadMore}>
+              Load More Books
+            </button>
           </div>
 
           <ToastContainer

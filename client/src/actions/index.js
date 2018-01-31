@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 //fetch all books from db
-export const FetchBook = () => async dispatch => {
+export const FetchBook = data => async dispatch => {
   dispatch({ type: 'LOADING_START' });
-  const res = await axios.get('/api/getBook');
+  const res = await axios.post('/api/getBook', { position: data.position });
   console.log(res.data);
   dispatch({
     type: 'FETCH_BOOK',
@@ -29,9 +29,11 @@ export const DeleteFromKorb = data => dispatch => {
 };
 
 //fetch book by year
-export const FetchBooksYearAsc = () => async dispatch => {
+export const FetchBooksYearAsc = data => async dispatch => {
   dispatch({ type: 'LOADING_START' });
-  const res = await axios.get('/api/getBook/year/asc');
+  const res = await axios.post('/api/getBook/year/asc', {
+    position: data.position
+  });
 
   dispatch({
     type: 'FETCH_BOOK',
@@ -39,9 +41,11 @@ export const FetchBooksYearAsc = () => async dispatch => {
   });
   dispatch({ type: 'LOADING_STOP' });
 };
-export const FetchBooksYearDesc = () => async dispatch => {
+export const FetchBooksYearDesc = data => async dispatch => {
   dispatch({ type: 'LOADING_START' });
-  const res = await axios.get('/api/getBook/year/desc');
+  const res = await axios.post('/api/getBook/year/desc', {
+    position: data.position
+  });
 
   dispatch({
     type: 'FETCH_BOOK',

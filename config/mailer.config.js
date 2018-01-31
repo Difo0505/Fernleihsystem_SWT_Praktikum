@@ -1,4 +1,4 @@
 module.exports = {
-  mailAdresse: 'soprano1993@live.fr',
-  mailPassword: 'yedekflaxe'
+  mailAdresse: 'fernleihe@outlook.com',
+  mailPassword: 'swt17grp1'
 };
